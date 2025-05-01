@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Real-time Chord Detector</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 15px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        h1, h2 {
+            color: #333;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+        h1 {
+            text-align: center;
+        }
+        p {
+            color: #555;
+            margin-bottom: 1em;
+        }
+        strong {
+            color: #222;
+        }
+        ul {
+            margin-left: 20px;
+            list-style-type: disc;
+        }
+        li {
+            margin-bottom: 0.5em;
+        }
+        code {
+            background-color: #eee;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        .contact-info {
+            margin-top: 2em;
+            padding-top: 1em;
+            border-top: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Privacy Policy</h1>
+    <h2>Real-time Chord Detector Chrome Extension</h2>
+
+    <p><strong>Effective Date:</strong> [Insert Date, e.g., October 26, 2023]</p>
+
+    <p>Thank you for using the Real-time Chord Detector extension ("the Extension"). This Privacy Policy describes how your data is handled when you use the Extension. Our core principle is privacy by design: we aim to perform the extension's function with the absolute minimum data access necessary, and crucially, **all audio processing happens locally within your browser.**</p>
+
+    <h2>1. Information We Access and Process</h2>
+
+    <p>The Extension requires access to certain information solely to perform its core function of detecting musical chords from audio playing in your browser tab:</p>
+
+    <ul>
+        <li>
+            <strong>Tab Audio Stream:</strong> To detect chords, the Extension needs temporary access to the audio stream being played in your currently active browser tab (e.g., a YouTube video). This audio data is captured using the <code>chrome.tabCapture</code> API.
+            <ul>
+                <li><strong>Local Processing:</strong> The captured audio stream is processed **entirely locally** within your browser using the Web Audio API and JavaScript running in a sandboxed environment (Offscreen Document).</li>
+                <li><strong>No Storage or Transmission:</strong> The raw audio data is **never stored permanently** and is **never sent to any external server**, including servers controlled by the developer. It is processed in real-time and discarded.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Detected Chord Information:</strong> The result of the local audio analysis is chord information (e.g., "C Major", "Am/G"). This information is used solely to display the detected chord within the active tab via an overlay injected by a content script. This chord information is **not stored** and **not transmitted** off your computer.
+        </li>
+        <li>
+            <strong>Configuration Settings:</strong> If you use the extension's settings popup, your chosen configuration parameters (e.g., similarity threshold, smoothing values) are saved using the <code>chrome.storage.sync</code> API.
+            <ul>
+                <li>This allows your settings to persist between browser sessions and potentially sync across your logged-in Chrome instances (this syncing is handled by Google Chrome, not the Extension directly).</li>
+                <li>These settings are only accessed locally by the Extension to adjust the chord detection algorithm according to your preferences.</li>
+                <li>Settings data is **not sent** to the developer or any third party.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>2. Information We DO NOT Collect</h2>
+
+    <p>The Extension **does not** collect, store, or transmit any:</p>
+    <ul>
+        <li>Personal Identifiable Information (PII) such as your name, email address, location, or IP address.</li>
+        <li>Browsing history or data from tabs other than the one where audio capture is explicitly activated.</li>
+        <li>User account information from any website.</li>
+        <li>Usage analytics or tracking data (unless explicitly added in a future version with clear opt-in).</li>
+    </ul>
+
+    <h2>3. How We Use Accessed Information</h2>
+
+    <p>The information accessed by the Extension is used exclusively for the following purposes:</p>
+    <ul>
+        <li>To analyze the audio stream of the active tab in real-time for chord detection.</li>
+        <li>To display the detected chord symbol(s) within the user interface of the Extension on the active tab.</li>
+        <li>To store and retrieve user-configured settings for the chord detection algorithm via <code>chrome.storage.sync</code>.</li>
+    </ul>
+
+    <h2>4. Data Storage and Security</h2>
+
+    <ul>
+        <li>As stated above, audio and detected chord data are processed transiently and are not stored.</li>
+        <li>Configuration settings are stored locally within your browser's storage area managed by Chrome (`chrome.storage.sync`).</li>
+        <li>No data processed or generated by the core functionality of this Extension is sent to or stored on external servers.</li>
+    </ul>
+
+    <h2>5. Data Sharing</h2>
+
+    <p>We **do not share** any data accessed or generated by the Extension (audio, chords, settings) with any third parties, advertisers, or the developer.</p>
+
+    <h2>6. Permissions Explanation</h2>
+
+    <p>The Extension requests the following permissions, necessary for its operation:</p>
+    <ul>
+        <li><code>tabCapture</code>: Required to access the audio stream from the active tab for analysis.</li>
+        <li><code>activeTab</code> / <code>scripting</code>: Required to inject the content script that displays the detected chords on the page.</li>
+        <li><code>storage</code>: Required to save and load your configured settings for the detection algorithm.</li>
+        <li><code>offscreen</code>: Required to run the computationally intensive audio processing efficiently in a separate, non-blocking environment within the browser.</li>
+    </ul>
+
+    <h2>7. User Choices and Control</h2>
+    <ul>
+        <li>You can enable or disable the chord detection functionality at any time using the extension's interface (e.g., the browser action icon).</li>
+        <li>You can modify your saved settings via the extension's popup.</li>
+        <li>You can uninstall the Extension at any time through your browser's extension management page. Uninstalling will remove the extension and should clear associated `chrome.storage.sync` data eventually, though this is managed by Chrome.</li>
+    </ul>
+
+
+    <h2>8. Changes to This Privacy Policy</h2>
+
+    <p>We may update this Privacy Policy from time to time. If we make significant changes, we will notify users through the extension interface or by updating the extension listing. We encourage you to review this policy periodically.</p>
+
+    <h2>9. Contact Us</h2>
+
+    <p>If you have any questions about this Privacy Policy or the Extension's practices, please contact us at:</p>
+    <p>ribeiro.lucas.soares@gmail.com</p>
+
+</body>
+</html>
