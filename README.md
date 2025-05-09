@@ -42,10 +42,7 @@ A powerful Chrome extension that detects musical chords in real-time from any au
 
 ## Installation
 
-1. Clone this repository or download the source code
-2. Open Chrome and navigate to `chrome://extensions/`
-3. Enable "Developer mode" in the top right
-4. Click "Load unpacked" and select the extension directory
+1. [Install from Chrome Extensions](https://chromewebstore.google.com/detail/real-time-chord-detector/eoffiogmiehknnnimmbaablfkceeagmb?utm_source=item-share-cb)
 
 ## Usage
 
