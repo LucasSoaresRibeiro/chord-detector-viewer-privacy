@@ -2,6 +2,8 @@
 
 A powerful Chrome extension that detects musical chords in real-time from any audio source playing in your browser. Whether you're learning songs, transcribing music, or analyzing harmonies, this extension helps you identify chords as they play.
 
+![image](https://github.com/user-attachments/assets/bbba5510-c7c5-43b7-b6d5-ab27a447f221)
+
 ## Features
 
 - **Real-time Chord Detection**: Analyzes audio in real-time using advanced frequency analysis and pattern matching
